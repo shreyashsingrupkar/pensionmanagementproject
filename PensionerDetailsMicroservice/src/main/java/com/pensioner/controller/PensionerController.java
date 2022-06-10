@@ -17,7 +17,7 @@ import com.pensioner.entity.Pensioner;
 import com.pensioner.service.PensionerService;
 
 @RestController
-
+@RequestMapping("/details")
 public class PensionerController {
 
 	@Autowired

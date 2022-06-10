@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @CrossOrigin
 @RestController
-
+@RequestMapping("/claims")
 public class ProcessPensionController{
 	private static final Logger log = LoggerFactory.getLogger(ProcessPensionController.class);
 	
@@ -56,7 +56,7 @@ public class ProcessPensionController{
 					log.info("Token valid :"+authClient.authorizeTheRequest(requestTokenHeader).isValid());
 				 
 					
-					  PensionerDetails p= restTemplate.getForObject("http://localhost:9002/PensionerDetailByAadhaar/"+aadharno,PensionerDetails.class);
+					  PensionerDetails p= restTemplate.getForObject("http://localhost:9000/details/PensionerDetailByAadhaar/"+aadharno,PensionerDetails.class);
 		   
 					  PensionDetail pd=claimServiceImpl.processPension(aadharno, p);
 					  

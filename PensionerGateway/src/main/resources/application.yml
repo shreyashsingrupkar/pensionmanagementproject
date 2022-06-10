@@ -1,0 +1,30 @@
+
+server:
+  port: 9000
+  
+
+
+spring:
+  application:
+    name: Pensioner-Api-Gateway
+  cloud:
+    gateway:
+      routes:
+      - id: authorization-microservice
+        uri: http://localhost:9001/
+        predicates:
+        - Path=/login/** 
+      - id: process-pension-microservice
+        uri: http://localhost:9002/
+        predicates:
+        - Path=/claims/**
+      - id: pensioner-details-service
+        uri: http://localhost:9003/
+        predicates:
+        - Path=/details/**
+        
+      
+        
+      
+        
+          
